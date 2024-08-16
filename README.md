@@ -1,70 +1,92 @@
+Here is the frontend section of the `README.md` file:
+
+
+Prerequisites
+Before you begin, ensure you have met the following requirements:
+
+Node.js: Download and install Node.js from nodejs.org. Node.js includes npm (Node Package Manager), which you'll use for managing packages and running the project.
+Installing Node.js
+Download Node.js:
+
+Visit the Node.js official website and download the latest version that matches your operating system.
+Install Node.js:
+
+Run the installer and follow the prompts to complete the installation. Make sure to include npm in the installation.
+Verify Installation:
+
+Open your terminal or command prompt and type the following commands to verify that Node.js and npm were installed correctly:
+
+```bash
+node -v
+npm -v
+```
+
+This should display the version numbers of Node.js and npm, confirming that they are installed and ready to use.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+```markdown
+## Frontend
 
-### `npm start`
+### Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **React:** A JavaScript library for building user interfaces.
+- **JavaScript:** The programming language used for the frontend logic.
+- **Axios:** A promise-based HTTP client for making API requests from the frontend.
+- **React Router v6:** For managing navigation and routing within the application.
+- **jspdf:** For generating PDF reports.
+- **react-modal:** For implementing modals.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+### Setup Instructions
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Navigate to the frontend directory:
+    ```bash
+    cd frontend
+    ```
 
-### `npm run build`
+2. Install the dependencies:
+    ```bash
+    npm install
+    ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Start the React application:
+    ```bash
+    npm start
+    ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. The frontend will be running on `http://localhost:3000`.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Usage
 
-### `npm run eject`
+1. Access the dashboard at `http://localhost:3000`.
+2. Use the navigation options in the **Navbar** and **Sidebar** to:
+   - Download CA bundles.
+   - Download specific issued certificates.
+   - Revoke certificates with a reason.
+   - Apply filters by SAN and date range to search certificates.
+   - Generate and download reports in PDF and CSV formats.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Components Overview
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Navbar:** The top navigation bar for accessing main sections of the application.
+- **Sidebar:** A collapsible sidebar that dynamically displays options based on user actions.
+- **Blocks:** Displays clickable blocks for different operations like downloading and revoking certificates.
+- **DownloadIssuedCertificate:** Provides options to filter and download issued certificates.
+- **CertificateRevoke:** Allows users to revoke certificates and displays a confirmation modal.
+- **FilterOptions:** Component for selecting and applying filters on certificate data.
+- **Table:** A reusable table component that supports pagination, filtering, and data export.
+- **RoleSelection:** Handles user role selection and manages session timeouts.
+- **Footer:** The footer of the application.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Important Notes
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **React Router v6** is used for routing, so ensure that the paths and components are properly configured.
+- **Axios** is used for making API requests; make sure the backend API endpoints are correctly set up in `CertificateService.js`.
+- Custom CSS files are used to style the components; modify these as needed to fit your design requirements.
+```
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This section provides all the necessary information for setting up, running, and understanding the frontend part of your project.
