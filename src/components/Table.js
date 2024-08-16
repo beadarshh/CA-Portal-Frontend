@@ -77,15 +77,17 @@ const Table = ({ data, setData, setFilteredData, role, filteredData, selectedOpt
             console.log('No reason provided for revocation');
             return;
         }
+
+        const encodedSan = encodeURIComponent(selectedCertificateSan);
+    const encodedReason = encodeURIComponent(reason);
     
-        console.log(`Sending request to delete certificate with SAN: ${selectedCertificateSan} and reason: ${reason}`);
-        const authToken = Cookies.get('authToken');
-        // const navigate = useNavigate(); // Initialize the navigate function
-    
-        axios.delete(`http://localhost:8080/certificates/certs?san=${selectedCertificateSan}&reason=${reason}`, {
-            headers: {
-                'Authorization': `Bearer ${authToken}`
-            }
+    console.log(`Sending request to delete certificate with SAN: ${encodedSan} and reason: ${encodedReason}`);
+    const authToken = Cookies.get('authToken');
+
+    axios.delete(`http://localhost:8080/certificates/certs?san=${encodedSan}&reason=${encodedReason}`, {
+        headers: {
+            'Authorization': `Bearer ${authToken}`
+        }
         })
         .then(() => {
             const updatedData = data.filter((row) => row.san !== selectedCertificateSan);
@@ -151,43 +153,7 @@ const downloadCertificate = (san) => {
 
     
 
-    const exportPDF = async () => {
-        try {
-            const response = await fetch('/download/pdf');
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            const blob = await response.blob();
-            const url = window.URL.createObjectURL(blob);
-            const link = document.createElement('a');
-            link.href = url;
-            link.setAttribute('download', 'Certificates.pdf');
-            document.body.appendChild(link);
-            link.click();
-            link.parentNode.removeChild(link);
-        } catch (error) {
-            console.error('There was an error downloading the PDF:', error);
-        }
-    };
     
-    const exportCSV = async () => {
-        try {
-            const response = await fetch('/download/csv');
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            const blob = await response.blob();
-            const url = window.URL.createObjectURL(blob);
-            const link = document.createElement('a');
-            link.href = url;
-            link.setAttribute('download', 'Certificates.csv');
-            document.body.appendChild(link);
-            link.click();
-            link.parentNode.removeChild(link);
-        } catch (error) {
-            console.error('There was an error downloading the CSV:', error);
-        }
-    };
 
     const onSearch = (value, column) => {
         if (value.trim() === '') {
@@ -214,14 +180,7 @@ const downloadCertificate = (san) => {
     return (
         <div className="table-box">
             <h4>{AppConfig.table.tableboxheading}</h4>
-            <div className='pdf and csv'>
-            {role === 'admin' && selectedOption === 'downloadcertificates' && (
-                    <div className="download-buttons">
-                        <button className="download-pdf-btn" onClick={exportPDF}>{AppConfig.table.pdfExport}</button>
-                        <button className="download-csv-btn" onClick={exportCSV}>{AppConfig.table.csvExport}</button>
-                    </div>
-                )}
-            </div>
+            
             <div className="rows-per-page-container">
                 <div className="rows-per-page">
                     <label htmlFor="rowsPerPage">{AppConfig.table.rowsPerPage}</label>

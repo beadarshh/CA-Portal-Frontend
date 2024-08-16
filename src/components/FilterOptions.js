@@ -163,7 +163,7 @@ import './componentscss/FilterOptions.css';
 import { useNavigate } from 'react-router-dom'; 
 import { useAuth } from '../AuthProvider'; 
 import Cookies from 'js-cookie';
-const FilterOptions = ({ setFilteredData, setShowTable, setLoading, selectedOption }) => {
+const FilterOptions = ({ setFilteredData, setShowTable, setLoading, selectedOption, role }) => {
   const [filterOption, setFilterOption] = useState('');
   const [day, setDay] = useState('');
   const [month, setMonth] = useState('');
@@ -243,6 +243,10 @@ const FilterOptions = ({ setFilteredData, setShowTable, setLoading, selectedOpti
       setShowDownloadButtons(true); // Show download buttons
     } else {
       console.error('Unexpected data format:', response.data);
+      setShowDownloadButtons(false);
+      setIsSelectError(true);
+      setErrorMessage("No Data Found");
+      setShowTable(false); // Hide table if unexpected data format
     }
   })
   .catch(error => {
@@ -251,9 +255,18 @@ const FilterOptions = ({ setFilteredData, setShowTable, setLoading, selectedOpti
       Cookies.remove('authToken'); // Clear authentication token
       sessionStorage.removeItem('role'); // Clear role data
       setIsAuthenticated(false); // Update authentication state
-      navigate('/logoutpage'); // Redirect to the header page
+      navigate('/logoutpage'); // Redirect to the logout page
+      
+    } else if (error.response && error.response.status === 204) {
+      // Handle 204 No Content error
+      setIsSelectError(true);
+      setErrorMessage("No Data Found"); // Display error message
+      setShowTable(false); // Hide table
+      setShowDownloadButtons(false);
     } else {
       console.error('Error fetching filtered data:', error.response ? error.response.data : error.message);
+      setShowTable(false); // Hide table in case of other errors
+      setShowDownloadButtons(false);
     }
   })
   .finally(() => {
@@ -292,6 +305,7 @@ const FilterOptions = ({ setFilteredData, setShowTable, setLoading, selectedOpti
         setLoading(false);
       });
   };
+  const storedRole = sessionStorage.getItem('role');
 
 
   return (
@@ -305,7 +319,7 @@ const FilterOptions = ({ setFilteredData, setShowTable, setLoading, selectedOpti
         <option value="monthly">Monthly</option> */}
         <option value="sansearch">Subject Alternative Name</option>
       </select>
-
+  
       {filterOption === 'dateRange' && (
         <div>
           <label htmlFor="startDate">Start Date:</label>
@@ -313,10 +327,10 @@ const FilterOptions = ({ setFilteredData, setShowTable, setLoading, selectedOpti
             type="date"
             id="startDate"
             value={startDate}
-            onChange={(e) => {setStartDate(e.target.value);
+            onChange={(e) => {
+              setStartDate(e.target.value);
               setIsSelectError(false);
               setErrorMessage('');
-                        
             }}
           />
           <label htmlFor="endDate">End Date:</label>
@@ -324,10 +338,10 @@ const FilterOptions = ({ setFilteredData, setShowTable, setLoading, selectedOpti
             type="date"
             id="endDate"
             value={endDate}
-            onChange={(e) => {setEndDate(e.target.value);
+            onChange={(e) => {
+              setEndDate(e.target.value);
               setIsSelectError(false);
               setErrorMessage('');
-                        
             }}
           />
           {isSelectError && <div className="error-message">{errorMessage}</div>}
@@ -336,13 +350,13 @@ const FilterOptions = ({ setFilteredData, setShowTable, setLoading, selectedOpti
           </button>
         </div>
       )}
-
+  
       {filterOption === 'past6months' && (
         <button className="apply-filter-btn" onClick={handleFilter}>
           Apply Past 6 Months Filter
         </button>
       )}
-
+  
       {filterOption === 'monthly' && (
         <div>
           <label htmlFor="month">Month:</label>
@@ -364,7 +378,7 @@ const FilterOptions = ({ setFilteredData, setShowTable, setLoading, selectedOpti
           </button>
         </div>
       )}
-
+  
       {filterOption === 'sansearch' && (
         <div>
           <label htmlFor="SAN">SAN:</label>
@@ -372,12 +386,11 @@ const FilterOptions = ({ setFilteredData, setShowTable, setLoading, selectedOpti
             type="text"
             id="SAN"
             value={SAN}
-            onChange={(e) => {setSAN(e.target.value);
+            onChange={(e) => {
+              setSAN(e.target.value);
               setIsSelectError(false);
               setErrorMessage('');
-                        
             }}
-            
             required
           />
           {isSelectError && <div className="error-message">{errorMessage}</div>}
@@ -386,10 +399,10 @@ const FilterOptions = ({ setFilteredData, setShowTable, setLoading, selectedOpti
           </button>
         </div>
       )}
-
-      {showDownloadButtons && (
+  
+      {storedRole === 'admin' && showDownloadButtons && (
         <div className='download-buttons'>
-        <div>
+          <div>
             <button className="apply-filter-btn" onClick={() => downloadFile('pdf')}>
               Download as PDF
             </button>
@@ -397,10 +410,9 @@ const FilterOptions = ({ setFilteredData, setShowTable, setLoading, selectedOpti
               Download as CSV
             </button>
           </div>
-      </div>
+        </div>
       )}
     </div>
   );
 };
-
 export default FilterOptions;
