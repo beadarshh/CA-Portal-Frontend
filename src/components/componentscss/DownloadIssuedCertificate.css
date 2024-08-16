@@ -1,0 +1,35 @@
+.download-buttons { 
+    display: flex; 
+    gap: 10px; 
+    margin-top: 20px; 
+  } 
+   
+  .download-pdf-btn, .download-csv-btn { 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    cursor: pointer; 
+  } 
+   
+  .outerbox { 
+    border: 1px solid #ddd; 
+    padding: 20px; 
+    border-radius: 5px; 
+    position: relative; 
+    margin-top: 20px; 
+    margin-left: 160px; /* Adjusted from 200px to 160px */ 
+    overflow: hidden; /* Ensure overflow is hidden to contain the absolute positioned h4 */ 
+    border-color: #004080; 
+  } 
+   
+  .outerbox h4 { 
+    position: absolute; 
+    top: -1px; 
+    left: 0; 
+    right: 0; /* Stretch the h4 to full width */ 
+    background-color: #004080; 
+    color: white; 
+    padding: 20px 10px; 
+    font-size: 20px; 
+    text-align: left; /* Left-align the text */ 
+    border-radius: 5px 5px 0 0; /* Adjusted border-radius */ 
+  }

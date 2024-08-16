@@ -1,0 +1,890 @@
+/* App.css */
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 10px 10px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+nav .logo img {
+  height: 40px;
+}
+
+nav .logo a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #f4f4f4;
+  padding: 10px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  height: calc(100% - 70px);
+  position: fixed;
+  top: 70px;
+}
+
+.sidebar h3 {
+  margin-top: 0;
+  margin-left: 5px;
+  font-size: 18px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 10px;
+}
+
+.sidebar ul li .dropdown-options {
+  margin-left: 20px;
+  margin-top: 5px;
+}
+
+.sidebar ul li .dropdown-options li {
+  margin-bottom: 5px;
+}
+
+.sidebar ul li button {
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.sidebar ul li button.selected {
+  background-color: #ddd;
+  border-radius: 3px;
+}
+
+.sidebar ul li button:hover {
+  background-color: #eee;
+}
+
+.sidebar ul li .dropdown-options button {
+  padding-left: 20px;
+  font-size: 13px;
+}
+
+
+/* Adjustments for the new blocks */
+
+.blocks {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  margin-left: 30px; /* Adjust this value based on your sidebar width */
+  width: calc(100% - 30px); /* Adjust this value based on your sidebar width */
+  gap: 20px;
+}
+
+.block {
+  display: flex;
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  text-align: center; /* Center align text within block */
+}
+
+.block h3 {
+  margin: 0;
+  font-size: 18px; /* Adjust font size if necessary */
+}
+
+.block select {
+  margin-left: 10px; /* Adjust spacing between text and dropdown */
+  padding: 5px;
+  font-size: 16px;
+}
+
+
+.outer-box {
+  /* border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 5px;
+  position: relative; */
+  margin-top: 60px;
+  margin-left: 60px;
+  overflow: hidden; /* Ensure overflow is hidden to contain the absolute positioned h4 */
+  /* border-color: #004080; */
+}
+/*  .outer-box h4 { */
+  /* position: absolute; 
+  top: -1px;
+  left: 0;
+  right: 0; /* Stretch the h4 to full width */
+  /* background-color: #004080; */
+  /* color: white; */
+  /* padding: 20px 10px; */
+  /* font-size: 20px; */
+  /* text-align: left; Center the text */
+  /* border-radius: 5px 5px 0 0; Adjusted border-radius */
+/* } */ 
+
+.table-container {
+  margin-left: 20px; /* Adjust margin-left */
+  padding: 10px; /* Reduce padding */
+  padding-top: 0; /* No extra padding needed here */
+  overflow-x: auto;
+}
+
+.table-box {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 5px;
+  position: relative;
+  margin-top: 20px;
+  overflow: hidden;
+  margin-left: 10px; /* Adjust this value based on your sidebar width */
+ /* Ensure overflow is hidden to contain the absolute positioned h4 */
+}
+
+.table-box h4 {
+  position: absolute;
+  top: -21px;
+  left: 0;
+  right: 0; /* Stretch the h4 to full width */
+  background-color: #007bff;
+  color: white;
+  padding: 6px 10px;
+  font-size: 15px;
+  text-align: left; /* Center the text */
+  border-radius: 5px 5px 0 0; /* Adjusted border-radius */
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table th,
+table td {
+  border: 1px solid #ddd;
+  padding: 7px;
+  font-size: 12px; /* Reduce font size */
+}
+
+table th {
+  background-color: #007bff;
+  color: white;
+}
+
+table th input {
+  width: 70%;
+  padding: 2px;
+}
+
+.download-btn, .revoke-btn {
+  padding: 5px 10px;
+  width: 100%;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 3px;
+  margin-bottom: 4px;
+  font-size: 12px; /* Reduce font size */
+}
+
+.download-btn {
+  background-color: #007bff;
+}
+
+.revoke-btn {
+  background-color: #dc3545;
+}
+
+.download-btn:hover, .revoke-btn:hover {
+  opacity: 0.8;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f4f4;
+}
+
+nav {
+display: flex;
+justify-content: space-between;
+align-items: center;
+background-color: #004080;
+padding: 10px 10px;
+position: fixed;
+width: 100%;
+top: 0;
+z-index: 1000;
+}
+
+nav .logo {
+  display: flex;
+  align-items: center;
+}
+
+nav .logo img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+nav .logo a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+nav ul li {
+  margin: 0 10px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+
+
+nav ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+nav ul li .home-btn {
+  background-color: #004080;
+  color: white;
+  border: none;
+  padding: 10px 10px;
+  cursor: pointer;
+  font-size: 15px;
+  border-radius: 5px;
+}
+
+nav ul li .home-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+nav ul li .logout-btn {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 10px 10px;
+  cursor: pointer;
+  font-size: 12px;
+  border-radius: 5px;
+}
+
+nav ul li .logout-btn:hover {
+  background-color: #ff1a1a;
+}
+
+
+.container {
+  display: flex;
+  margin: 20px;
+}
+
+.sidebar {
+width: 200px; /* Adjust width */
+background-color: #f4f4f4;
+padding: 10px; /* Reduce padding */
+box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+height: calc(100vh - 50px); /* Adjust height */
+position: fixed;
+top: 50px; /* Adjust this if the navbar height changes */
+left: 0;
+}
+
+.sidebar h3 {
+  margin-bottom: 10px;
+  font-weight: 1000;;
+  color: black;
+  right: 0;
+  padding: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar ul li {
+  margin-bottom: 10px;
+}
+
+.sidebar ul li .sidebar-btn {
+  background-color: #f4f4f4;
+  color: #333;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.sidebar ul li .sidebar-btn.selected {
+  background-color: #004080;
+  color: #fff;
+}
+
+.sidebar ul li .sidebar-btn:hover{
+  background-color: #0056b3;
+  color: #fff;
+  font-weight: bolder;
+}
+
+.content {
+  flex: 1;
+  margin-left: 20px;
+}
+
+.content h1 {
+  margin-bottom: 20px;
+}
+
+
+.table-container {
+ /* Adjust margin-left */
+padding: 10px; /* Reduce padding */
+padding-top: 0; /* No extra padding needed here */
+overflow-x: auto;
+}
+
+.table-box {
+border: 1px solid #ddd;
+padding: 10px;
+border-radius: 5px;
+position: relative;
+margin-top: 20px;
+overflow: hidden; /* Ensure overflow is hidden to contain the absolute positioned h4 */
+}
+
+.table-box h4 {
+position: absolute;
+top: -2px;
+left: 0;
+right: 0; /* Stretch the h4 to full width */
+background-color: #007bff;
+color: white;
+padding: 6px 10px;
+font-size: 15px;
+text-align: left; /* Center the text */
+border-radius: 5px 5px 0 0; /* Adjusted border-radius */
+}
+
+.filter-container{
+  margin-left: 10px;
+}
+
+.filter-container select{
+  display: flex;
+  gap: 10px; /* Adds space between the input fields */
+  margin-top: 10px;
+  padding: 8px;
+  width: 150px; /* Adjusted width for each input */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.date-filter {
+  display: flex;
+  gap: 10px; /* Adds space between the input fields */
+  margin-top: 10px;
+}
+
+.date-filter input[type="number"] {
+  padding: 8px;
+  width: 80px; /* Adjusted width for each input */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.date-filter input[type="number"]:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+
+.Filter-btn {
+  padding: 8px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 3px;
+  margin-bottom: 4px;
+  font-size: 16px; /* Reduce font size */
+}
+
+.date-range-filter {
+  display: flex;
+  gap: 10px; /* Adds space between the input fields */
+  margin-top: 10px;
+}
+
+.date-range-filter input[type="date"] {
+  padding: 8px;
+  width: 130px; /* Adjusted width for each input */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.date-range-filter input[type="date"]:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.Filter6months-btn{
+  padding: 8px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 3px;
+  margin-top: 10px;
+  margin-bottom: 4px;
+  font-size: 16px;
+}
+
+.advance-filter {
+  display: flex;
+  flex-direction: column; /* Stack the input fields vertically */
+  gap: 15px; /* Adds space between each label-input group */
+  margin-top: 10px;
+}
+
+.filter-item {
+  display: flex;
+  align-items: center; /* Center items vertically */
+  gap: 10px; /* Space between the label and input fields */
+}
+
+.filter-item label {
+  width: 150px; /* Fixed width for labels, adjust as needed */
+  font-weight: bold; /* Optional: Make labels bold */
+}
+
+.advance-filter input[type="text"],
+.advance-filter input[type="number"] {
+  padding: 8px;
+  width: 200px; /* Set a fixed width for the inputs */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.advance-filter input[type="text"]:focus,
+.advance-filter input[type="number"]:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.advance-filter .Filter-btn {
+  width: 200px;
+  font-weight: bold; /* Optional: Adjust font weight as needed */
+}
+
+.rows-per-page-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.rows-per-page {
+  display: flex;
+  align-items: center;
+}
+
+.rows-per-page label {
+  margin-right: 10px;
+}
+
+.rowsPerPage{
+display: flex;
+align-content: flex-end;
+margin-top: 30px;
+margin-bottom: 10px;
+}
+
+table {
+width: 100%;
+border-collapse: collapse;
+margin-top: 20px;
+}
+
+table th,
+table td {
+border: none;
+border-top: 1px solid #ddd; /* Top border only */
+border-bottom: 1px solid #ddd; /* Bottom border only */
+padding: 7px;
+font-size: 12px; /* Reduce font size */
+}
+
+table th {
+background-color: #007bff;
+color: white;
+}
+
+table th input {
+width: 70%;
+padding: 2px;
+}
+
+table tbody tr:nth-child(odd) {
+background-color: #f9f9f9; /* Light grey for odd rows */
+}
+
+table tbody tr:nth-child(even) {
+background-color: #e0e0e0; /* Darker grey for even rows */
+}
+
+.download-btn, .revoke-btn {
+padding: 5px 10px;
+width: 100px;
+border: none;
+color: white;
+cursor: pointer;
+border-radius: 3px;
+margin-bottom: 4px;
+font-size: 12px; /* Reduce font size */
+}
+
+.download-btn {
+background-color: #007bff;
+}
+
+.revoke-btn {
+background-color: #dc3545;
+}
+
+.download-btn:hover, .revoke-btn:hover {
+opacity: 0.8;
+}
+
+
+
+.table-box .rows-per-page {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+}
+
+.table-box .rows-per-page select {
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.table-box .pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.table-box .pagination button {
+  padding: 5px 10px;
+  margin: 0 5px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.table-box .pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  margin-top: auto; /* Pushes the footer to the bottom */
+}
+
+footer .top {
+display: flex;
+align-items: center;
+justify-content: center;
+margin-bottom: 10px;
+}
+
+/*footer {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  margin-top: auto; /* Pushes the footer to the bottom */
+  /*position: relative; /* Ensure the footer is positioned relative to its normal flow */
+  /*z-index: 10; /* Set a higher z-index value 
+} 
+
+/* footer .top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+} */
+
+
+footer .top .logo img {
+height: 40px;
+margin-right: 10px;
+}
+
+footer .top a {
+color: white;
+text-decoration: none;
+margin: 0 10px;
+}
+
+footer .separator {
+border-top: 1px solid #ddd;
+margin: 10px 0;
+}
+
+footer .bottom {
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+footer .bottom p {
+margin: 0;
+}
+
+footer .bottom .links a {
+color: white;
+text-decoration: none;
+margin: 0 10px;
+}
+
+.modal {
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border-radius: 12px; /* Rounded corners */
+  width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: center; /* Center-aligns the buttons horizontally */
+  gap: 10px;
+  margin-top: 20px;
+  align-items: center;
+}
+
+.modal select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 10px;
+  border-radius: 4px; /* Rounded corners for the select element */
+}
+
+.modal button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px; /* Rounded corners for buttons */
+  cursor: pointer;
+}
+
+.modal .modal-buttons button:first-child {
+  background-color: green;
+  color: white;
+}
+
+.modal .modal-buttons button:last-child {
+  background-color: red;
+  color: white;
+}
+
+
+.select-error {
+  border: 1px solid red;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.875em; /* Adjust size as needed */
+  margin-top: 0.5em; /* Adjust spacing as needed */
+}
+
+
+.show-table-button {
+  padding: 10px 20px; /* Adjust padding for size */
+  background-color: #004080; /* Blue color */
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 50px;
+  margin-left: 10px;
+  margin-bottom: 10px; /* Optional: Add margin for spacing */
+}
+
+.show-table-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.download-buttons {
+  justify-items: start;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 300px;
+  gap: 40px;
+}
+
+.download-buttons .download-pdf-btn {
+background-color: #007bff;
+padding: 5px 10px;
+border: none;
+color: white;
+cursor: pointer;
+border-radius: 3px;
+margin-bottom: 4px;
+font-size: 15px;
+}
+
+.download-buttons .download-csv-btn {
+  background-color: #007bff;
+  padding: 5px 10px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 3px;
+  margin-bottom: 4px;
+  margin-left: 20px;
+  font-size: 15px;
+  }
+
+  .ca-bundle-button-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;     /* Center vertically */
+    height: 20vh;           /* Full viewport height for vertical centering */
+}
+
+  .download-bundle-btn {
+    background-color: #28a745; /* Green color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 25px;
+    margin-top: 10px;
+}
+
+.download-bundle-btn:hover {
+    background-color: #218838; /* Darker green */
+}

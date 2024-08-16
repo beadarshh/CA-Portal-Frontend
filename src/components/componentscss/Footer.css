@@ -1,0 +1,66 @@
+/* In your CSS file (e.g., App.css or index.css) */
+
+
+/* In your CSS file */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: auto; /* Pushes the footer to the bottom */
+    width: 100%; /* Ensure the footer stretches across the entire width */
+}
+
+footer .top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+footer .top .logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+footer .top a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer .separator {
+    border-top: 1px solid #ddd;
+    margin: 10px 0;
+}
+
+footer .bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer .bottom p {
+    margin: 0;
+}
+
+footer .bottom .links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer .home-btn {
+    background-color: #333;
+    color: white;
+  border: none;
+  padding: 10px 10px;
+  cursor: pointer;
+  font-size: 15px;
+  border-radius: 5px;
+}
+
+footer .home-btn:hover {
+    background-color: #696969; /* Darker grey on hover */
+}
+

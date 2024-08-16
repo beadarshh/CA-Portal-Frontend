@@ -1,0 +1,48 @@
+.filter-options-container {
+    margin: 20px;
+    font-size: large;
+  }
+  
+  .filter-options-container h5 {
+    margin-bottom: 10px;
+  }
+  
+  .filter-options-container label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .filter-options-container select,
+  .filter-options-container input {
+    width: 20%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .filter-date-options,
+  .filter-date-range,
+  .filter-advanced-options {
+    margin-top: 20px; /* Adds space below the dropdown */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+  }
+  
+  .filter-options-container .apply-filter-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px; /* Additional space above the button */
+    display: block;
+  }
+  
+  .filter-options-container .apply-filter-btn:hover {
+    background-color: #0056b3;
+  }
+  

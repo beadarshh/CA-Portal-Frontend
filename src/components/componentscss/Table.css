@@ -1,0 +1,304 @@
+td{
+  text-align: center;
+}
+
+.table-container {
+  padding: 10px;
+  padding-top: 0;
+  overflow-x: auto;
+}
+
+.table-box { 
+  border: 1px solid #ddd; 
+  padding: 40px 10px 10px 10px; /* Increased padding-top to accommodate the h4 */ 
+  border-radius: 5px; 
+  position: relative; 
+  margin-top: 20px; 
+  overflow: hidden; 
+} 
+ 
+.table-box h4 { 
+  position: absolute; 
+  top: -2px; 
+  left: 0; 
+  right: 0; 
+  background-color: #007bff; 
+  color: white; 
+  padding: 6px 10px; 
+  font-size: 15px; 
+  text-align: left; 
+  border-radius: 5px 5px 0 0; 
+} 
+ 
+.pagination { 
+  margin-top: 20px; 
+  display: flex; 
+  justify-content: center; 
+  position: relative; 
+  z-index: 1; /* Ensure pagination stays above other elements */ 
+}
+
+.filter-container {
+  margin-left: 10px;
+}
+
+.filter-container select {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 8px;
+  width: 150px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.date-filter {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.date-filter input[type="number"] {
+  padding: 8px;
+  width: 80px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.date-filter input[type="number"]:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.apply-filter-button {
+  display: block;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+
+.pagination button {
+  margin: 0 5px;
+  padding: 8px 12px;
+  border: 1px solid #007bff;
+  border-radius: 4px;
+  background-color: white;
+  color: #007bff;
+  cursor: pointer;
+}
+
+.pagination button.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.pagination button:hover {
+  background-color: #0056b3;
+  color: white;
+}
+
+.download-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.download-btn, .download-pdf-btn, .download-csv-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.download-btn:hover, .download-pdf-btn:hover, .download-csv-btn:hover {
+  background-color: #0056b3;
+}
+
+.revoke-btn {
+  background-color: #dc3545;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.revoke-btn:hover {
+  background-color: #c82333;
+}
+
+.error-message {
+  color: red;
+  margin-top: 5px;
+}
+
+/* Table.css */
+
+/* Styles for the modal overlay */
+.custom-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Styles for the modal content */
+.custom-modal {
+  position: relative;
+  width: 80%;
+  max-width: 600px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Modal title */
+.custom-modal h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+/* Modal content container */
+.select-reason {
+  margin-bottom: 20px;
+}
+
+/* Label styling */
+.custom-modal label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+/* Select dropdown styling */
+.custom-modal select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Error select styling */
+.error-select {
+  border-color: red;
+}
+
+/* Error message styling */
+.error-message {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 5px;
+}
+
+/* Success message styling */
+.success-message {
+  color: green;
+  font-size: 0.875rem;
+  margin-top: 10px;
+}
+
+/* Modal buttons container */
+.custom-modal button {
+  margin: 10px 5px 0 0;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* Style for submit button */
+.custom-modal button:first-of-type {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Style for cancel button */
+.custom-modal button:last-of-type {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+/* Ensure buttons are stacked on smaller screens */
+@media (max-width: 600px) {
+  .custom-modal button {
+      display: block;
+      width: 100%;
+      margin-top: 10px;
+  }
+}
+
+/* Overlay styles */
+.custom-overlay {
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Modal container styles */
+.success-modal {
+  background-color: #fff; /* White background for the modal */
+  border-radius: 8px; /* Rounded corners */
+  padding: 20px; /* Space inside the modal */
+  max-width: 500px; /* Maximum width of the modal */
+  width: 90%; /* Width of the modal */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  position: relative; /* For positioning the close button */
+}
+
+/* Title styles */
+.success-modal h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: #4caf50; /* Green color for the success message */
+}
+
+/* Button styles */
+.success-modal button {
+  background-color: #4caf50; /* Green background for the button */
+  color: #fff; /* White text color */
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.success-modal button:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+/* Close button styles */
+.success-modal button.close-button {
+  background-color: #f44336; /* Red background for the close button */
+}
+
+.success-modal button.close-button:hover {
+  background-color: #e53935; /* Darker red on hover */
+}
+
+

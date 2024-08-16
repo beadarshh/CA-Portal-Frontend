@@ -1,0 +1,27 @@
+.blocks-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+  margin-top: 100px;
+  margin-left: 220px; /* Adjust this value based on the width of your sidebar */
+}
+
+.block-option {
+  padding: 20px;
+  border: 2px solid #007bff; /* Blue border */
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  width: 45%;
+  transition: background-color 0.3s ease;
+  background-color: #0c3b8d; /* Light blue background */
+  color: #ffffff; /* Blue text color */
+}
+
+.block-option.selected {
+  background-color: #0c3b8d; /* Slightly darker blue when selected */
+}
+
+.block-option:hover {
+  background-color: #2165b9; /* Blue background on hover */
+}
